@@ -1,7 +1,7 @@
 const express = require("express");
 
 // Call environment variables
-require("dotenv").config({ path: "./config.env" });
+require("dotenv").config();
 
 const app = express();
 
