@@ -1,11 +1,18 @@
 const express = require("express");
 
+// Call environment variables
+require("dotenv").config({ path: "./config.env" });
+
 const app = express();
 
 app.get("/", (req, res) => {
-  console.log("petición recibida");
+  console.log("Request received");
 
-  res.send("Hola mundo!");
+  res.status(200).send("<h1>Hello World!</h1>");
 });
 
-app.listen(4000, () => console.log("Servidor escuchando en el puerto 4000"));
+//spin up server
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+  console.log(`Express app running on port: ${PORT}`);
+});
